@@ -54,4 +54,5 @@ def game_loop():
         pygame.display.update()
         dis.fill(white)
         pygame.time.wait(50)
+        print("Hasnain")
 
