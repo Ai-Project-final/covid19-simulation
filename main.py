@@ -55,4 +55,5 @@ def game_loop():
         dis.fill(white)
         pygame.time.wait(50)
         print("Hasnain")
+        print("Zaki")
 
