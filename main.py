@@ -7,13 +7,13 @@ import math
 # globals
 display_width = 800
 display_height = 800
-population = 1000000
+population = 2500
 personperrow = math.sqrt(population)
 print(personperrow)
 width = display_width/personperrow
 height = display_height/personperrow
 margin = ((width/100)*1.5, (height/100)*1.5)
-infection_percent = 0.002
+infection_percent = 0.75
 
 
 # predefined colours
@@ -80,7 +80,7 @@ def display_person(people):
                 dis, red, (((p.location[0] * width)), ((p.location[1]*height)), width-margin[0], height-margin[1]))
         else:
             pygame.draw.rect(
-                dis, black, (((p.location[0] * width)), ((p.location[1]*height)), width-margin[0], height-margin[1]))
+                dis, blue, (((p.location[0] * width)), ((p.location[1]*height)), width-margin[0], height-margin[1]))
 
 
 def event_handler():
@@ -98,19 +98,20 @@ def check_spread(people):
         if(p.infected == True):
 
             x, y = p.location
+
+            if(y < personperrow-1):
+                for q in people:
+                    if(q.location == (x, y+1)):
+                        chance = random.random()
+                        if(chance < infection_percent):
+                            q.infected = True
+
             if(x > 0):
                 for q in people:
                     if(q.location == (x-1, y)):
                         chance = random.random()
                         if(chance < infection_percent):
                             # print("111")
-                            q.infected = True
-
-            if(x < personperrow-1):
-                for q in people:
-                    if(q.location == (x+1, y)):
-                        chance = random.random()
-                        if(chance < infection_percent):
                             q.infected = True
 
             if(y > 0):
@@ -120,9 +121,9 @@ def check_spread(people):
                         if(chance < infection_percent):
                             q.infected = True
 
-            if(y < personperrow-1):
+            if(x < personperrow-1):
                 for q in people:
-                    if(q.location == (x, y+1)):
+                    if(q.location == (x+1, y)):
                         chance = random.random()
                         if(chance < infection_percent):
                             q.infected = True
@@ -155,7 +156,7 @@ def game_loop():
     center = math.ceil(personperrow/2)
 
     for p in people:
-        if(p.location == (center, center)):
+        if(p.location == (0, 0)):
             p.infected = True
 
     print()
