@@ -20,11 +20,11 @@ recovery_percent = 0.1
 preventive_measures_followed_percentage = 0.1
 
 # predefined colours
-white = (255, 255, 255)
-black = (0, 0, 0)
-red = (255, 0, 0)
-green = (0, 200, 0)
-blue = (0, 0, 255)
+white = (255, 255, 255) # mask wale log
+black = (0, 0, 0) # mare we log
+red = (255, 0, 0) # jinko virus h
+green = (0, 200, 0) # virus se bach jane wale
+blue = (0, 0, 255) # virus se pehlay normal log
 bright_green = (0, 255, 0)
 g = (80, 80, 20)
 
