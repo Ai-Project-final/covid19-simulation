@@ -306,7 +306,13 @@ def drawbuttons():
         pg.draw.rect(screen, color, input_box, 2)
         pg.display.flip()
         clock.tick(30)
-    pygame.display.set_mode((display_width, display_height))
+
+
+def boxes():
+    pygame.draw.rect(dis, (246, 4, 4), (430, 30, 40, 40))
+    pygame.draw.rect(dis, (255, 255, 255), (10, 70, 40, 40))
+    pygame.draw.rect(dis, (250, 247, 2), (10, 130, 40, 40))
+    pygame.draw.rect(dis, (87, 208, 3), (10, 200, 40, 40))
 
 
 def check_recovery(people):
@@ -413,6 +419,8 @@ def plot_curve():
 
 def game_loop():
     # drawbuttons()
+
+    boxes()
 
     people = []
     j = 0
